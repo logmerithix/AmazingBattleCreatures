@@ -9,10 +9,15 @@ public class BattleCreature
     private int intHitPointsMaster;
     private int intHitPoints; // Or perhaps it should be intHealthPoints?
     private int intDefenceRating;
-    private int intOffenceRating;
+    protected int intOffenceRating;
     private boolean blnIsDefeated;
-    private boolean blnHasWon;
+    protected boolean blnHasWon;
     private String strLastAction;
+
+    public BattleCreature()
+    {
+
+    }
 
     public BattleCreature(String strName_PARAM,
                                int intHitPoints_PARAM,
