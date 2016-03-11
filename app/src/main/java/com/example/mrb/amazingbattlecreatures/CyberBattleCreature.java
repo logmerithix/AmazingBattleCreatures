@@ -6,35 +6,40 @@ package com.example.mrb.amazingbattlecreatures;
 public class CyberBattleCreature extends BattleCreature
 {
     private int intCyberAttackAmount;
-    private int intCyberDefenceAmount;
 
     public CyberBattleCreature(String strName_PARAM,
                                int intHitPoints_PARAM,
                                int intDefenceRating_PARAM,
                                int intOffenceRating_PARAM,
-                               int intCyberAttackAmount_PARAM,
-                               int intCyberDefenceAmount_PARAM)
+                               int intCyberAttackAmount_PARAM)
     {
+        // Call the Constructor of the parent class using the keyword "super". This will set the
+        //   values for most of the variables (except intCyberAttackAmount)
         super(strName_PARAM, intHitPoints_PARAM, intDefenceRating_PARAM, intOffenceRating_PARAM);
 
+        // We need to set the new data variable here, since the parent class constructor can't
+        //   handle it.
         this.intCyberAttackAmount = intCyberAttackAmount_PARAM;
-        this.intCyberDefenceAmount = intCyberDefenceAmount_PARAM;
     }
 
-    public void attack(BattleCreature battcreatOpponent_PARAM)
+    public void cyberAttack(BattleCreature battcreatOpponent_PARAM)
     {
         if (!battcreatOpponent_PARAM.isDefeated())
         {
-            battcreatOpponent_PARAM.defend(super.intOffenceRating);
+            // We attack the opponent with our new intCyberAttackAmount!
+            battcreatOpponent_PARAM.defend(intCyberAttackAmount);
+            strLastAction = strName + " has delivered a " + intCyberAttackAmount
+                    + "-point cyber attack!\n";
         }
 
         if(battcreatOpponent_PARAM.isDefeated())
         {
-            super.blnHasWon = true;
+            // We call the blnHasWon() method on our opponent using the "super" keyword
+            blnHasWon = true;
         }
         else
         {
-            super.blnHasWon = false;
+            blnHasWon = false;
         }
     }
 
