@@ -27,11 +27,11 @@ public class AmazingBattleCreatures extends AppCompatActivity {
         boolean blnSecondBCWins = false;
 
         BattleCreature bcOne;
-        CyberBattleCreature cbcTwo;
+        LoudAssassins cbcTwo;
 
         // Thanks to Mr Hardman for checking the original numbers! These ones work better.
         bcOne = new BattleCreature("Mondoise", 200, 10, 33);
-        cbcTwo = new CyberBattleCreature("Tuesachu", 200, 25, 15, 45);
+        cbcTwo = new LoudAssassins("Altide Air", 200, 25, 15, 45);
 
         bcOne.restore();
         cbcTwo.restore();
@@ -50,7 +50,7 @@ public class AmazingBattleCreatures extends AppCompatActivity {
             }
            if((bcOne.isDefeated() == false) && (cbcTwo.isDefeated() == false))
            {
-               cbcTwo.cyberAttack(bcOne);
+               cbcTwo.loudAttack(bcOne);
                txtvwBattleOutput.append(cbcTwo.getLastAction());
                txtvwBattleOutput.append(bcOne.getLastAction());
                blnSecondBCWins = cbcTwo.hasWon();
